@@ -17,6 +17,7 @@ COPY . /app
 
 EXPOSE 3000
 
+# Next.jsを起動するためのスクリプト
 COPY startup.sh /startup.sh
 RUN chmod 744 /startup.sh
 CMD ["/startup.sh"]
