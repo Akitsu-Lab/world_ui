@@ -19,5 +19,6 @@ EXPOSE 3000
 # startするためのコマンド
 # package.jsonのstartに書いてあるもの
 # CMD [ "node", "server.js" ]
+CMD [ "npm", "install" ]
 CMD [ "npm", "run", "build" ]
 CMD [ "npm", "start" ]
