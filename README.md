@@ -49,3 +49,9 @@ docker stop world_ui
 ```shell
 docker rmi $(docker images -f "dangling=true" -q)
 ```
+
+## ログを確認
+
+```shell
+docker logs -f world_ui
+```
