@@ -16,9 +16,7 @@ RUN npm install
 COPY . /app
 
 EXPOSE 3000
-# startするためのコマンド
-# package.jsonのstartに書いてあるもの
-# CMD [ "node", "server.js" ]
-CMD [ "npm", "install" ]
-CMD [ "npm", "run", "build" ]
-CMD [ "npm", "start" ]
+
+COPY startup.sh /startup.sh
+RUN chmod 744 /startup.sh
+CMD ["/startup.sh"]
