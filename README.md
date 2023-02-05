@@ -31,3 +31,15 @@ docker run --name world_ui --rm -d -p 3000:3000 world_ui_node18.14-slim
 ```
 
 docker run --name <コンテナ名> --rm -d -p <ホスト側ポート>:<コンテナ側ポート> <イメージ名>
+
+### コンテナに入る
+
+```shell
+docker exec -it world_ui bash
+```
+
+## コンテナを止める
+
+```shell
+docker stop world_ui
+```
