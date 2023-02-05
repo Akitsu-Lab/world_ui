@@ -43,3 +43,9 @@ docker exec -it world_ui bash
 ```shell
 docker stop world_ui
 ```
+
+## 不要な docker image を削除
+
+```shell
+docker rmi $(docker images -f "dangling=true" -q)
+```
