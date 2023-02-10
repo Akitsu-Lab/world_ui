@@ -1,4 +1,4 @@
-import Header from "./header";
+import Layout from "@/components/layout";
 import Link from "next/link";
 
 export default function Other() {
@@ -6,17 +6,17 @@ export default function Other() {
 
   return (
     <div>
-      <Header title={title} />
-      <h1 className="bg-primary px-3 text-white display-4">React</h1>
-      <div className="container">
-        <h3 className="my-3 text-primary text-center">{title}</h3>
-        <div className="card p-3">
-          <p>これは、もう1つのページの表示です。</p>
-          <Link href="/" legacyBehavior>
-            <a>&lt;&lt; Black to Index page</a>
-          </Link>
+      <Layout header="Next.js" title="Other page.">
+        <div className="card p-4 text-center">
+          <h3 className="mb-4">This is Other page...</h3>
+          <div className="card p-3">
+            <p>これは、もう1つのページの表示です。</p>
+            <Link href="/" legacyBehavior>
+              <a>&lt;&lt; Black to Index page</a>
+            </Link>
+          </div>
         </div>
-      </div>
+      </Layout>
     </div>
   );
 }
