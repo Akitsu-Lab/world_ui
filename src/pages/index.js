@@ -1,5 +1,4 @@
 import Header from "./header";
-import Link from "next/link";
 
 export default function Home() {
   let title = "Next.js Index";
