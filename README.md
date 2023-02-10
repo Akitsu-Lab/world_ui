@@ -1,9 +1,19 @@
 # world_ui
 
+## 開発時コマンド
+
+```sh
+npm run dev
+```
+
 ## 前準備
 
 ```sh
 npm upgrade
+```
+
+```sh
+npm run build
 ```
 
 ## ビルド
