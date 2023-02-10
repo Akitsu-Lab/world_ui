@@ -1,21 +1,57 @@
+import Layout from "@/components/layout";
+import axios from "axios";
 import Link from "next/link";
-import Header from "./header";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  let title = "Next.js Index";
+  const [country, setcountry] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:3001/country").then((res) => {
+      // axios.get("http://world_api:3001/country").then((res) => {
+      setcountry(res.data);
+    });
+  }, []);
+
   return (
     <div>
-      <Header title={title} />
-      <h1 className="bg-primary px-3 text-white display-4">React</h1>
-      <div className="container">
-        <h3 className="my-3 text-primary text-center">{title}</h3>
-        <div className="card p-3 text-center">
-          <p>これは、ページ移動のサンプルです。</p>
-          <Link href="other" legacyBehavior>
-            <a>Go to Other page &gt;&gt;</a>
+      <Layout header="Next.js" title="Top page.">
+        <div className="alert alert-primary text-center">
+          <h5 className="mb-4">Welcome to world_app!</h5>
+          <table className="table bg-white">
+            <thead className="table-dark">
+              <tr>
+                <th>Name</th>
+                <th>SurfaceArea</th>
+                <th>Population</th>
+              </tr>
+            </thead>
+            <tbody>
+              {country.map((value, key) => (
+                <tr key={key}>
+                  {/* <th>{value.Code}</th> */}
+                  <th>{value.Name}</th>
+                  {/* <th>{value.Continent}</th>
+                  <th>{value.Region}</th> */}
+                  <th>{value.SurfaceArea}</th>
+                  {/* <th>{value.IndepYear}</th> */}
+                  <th>{value.Population}</th>
+                  {/* <th>{value.LifeExpectancy}</th>
+                  <th>{value.GNP}</th>
+                  <th>{value.GNPOld}</th>
+                  <th>{value.LocalName}</th>
+                  <th>{value.GovernmentForm}</th>
+                  <th>{value.HeadOfState}</th>
+                  <th>{value.Capital}</th>
+                  <th>{value.Code2}</th> */}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <Link href="./other">
+            <button className="btn btn-primary">go to Other &gt;&gt;</button>
           </Link>
         </div>
-      </div>
+      </Layout>
     </div>
   );
 }
