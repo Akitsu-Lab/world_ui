@@ -6,10 +6,14 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [country, setcountry] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3001/country").then((res) => {
-      // axios.get("http://world_api:3001/country").then((res) => {
-      setcountry(res.data);
-    });
+    axios
+      .get("http://localhost:3001/country", {
+        headers: { "Content-type": "text/plain" },
+      })
+      .then((res) => {
+        // axios.get("http://world_api:3001/country").then((res) => {
+        setcountry(res.data);
+      });
   }, []);
 
   return (
