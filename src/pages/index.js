@@ -8,7 +8,6 @@ export default function Home() {
   useEffect(() => {
     axios
       .get("http://localhost:3001/country", {
-        // axios.get("http://world_api:3001/country").then((res) => {
         headers: { "Content-type": "text/plain" },
       })
       .then((res) => {
